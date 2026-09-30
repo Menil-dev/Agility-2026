@@ -8,7 +8,7 @@ export default function SportsGallery({ onRegisterSport }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Alternating Sports Event List */}
-        <div className="space-y-20">
+        <div className="space-y-24 sm:space-y-28">
           {sportsData.map((sport, index) => {
             const isImageRight = index % 2 === 0;
 
@@ -28,6 +28,18 @@ export default function SportsGallery({ onRegisterSport }) {
                     </p>
                   </div>
 
+                  {/* Mobile Image (shown after description) */}
+                  <div className="lg:hidden w-full flex items-center justify-center py-1">
+                    <img
+                      src={sport.image}
+                      alt={sport.title}
+                      className="w-full max-w-sm h-auto max-h-[280px] object-contain rounded-2xl shadow-2xl transition-transform duration-300 hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = sport.image.replace('/uploads/', 'uploads/');
+                      }}
+                    />
+                  </div>
+
                   {/* Category Variants Breakdown */}
                   {sport.variants && sport.variants.length > 0 && (
                     <div className="space-y-1.5">
@@ -35,34 +47,36 @@ export default function SportsGallery({ onRegisterSport }) {
                         <Tag className="w-3.5 h-3.5 text-red-500" />
                         Available Categories & Fees:
                       </span>
-                      <div className="flex flex-wrap gap-2">
-                        {sport.variants.map((v, idx) => (
-                          <div
-                            key={idx}
-                            className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium flex items-center gap-2"
-                          >
-                            <span>{v.name}</span>
-                            <span className="text-white font-bold font-mono bg-slate-800 px-1.5 py-0.5 rounded text-[11px]">
-                              {v.fee}
-                            </span>
-                          </div>
-                        ))}
+                      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 shadow-[0_18px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl">
+                        <div className="space-y-2">
+                          {sport.variants.map((v, idx) => (
+                            <div
+                              key={idx}
+                              className={`flex items-center justify-between text-xs ${idx !== sport.variants.length - 1 ? 'pb-2 border-b border-white/10' : ''}`}
+                            >
+                              <span className="text-slate-200 font-medium">{v.name}</span>
+                              <span className="text-white font-bold font-mono">{v.fee}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
 
-                  {/* Spec Grid (Format & Prize Pool only, halved spacing) */}
+                  {/* Spec Grid (Format & Prize Pool only, single outer container) */}
                   <div className="mt-2.5">
-                    <div className="grid grid-cols-2 gap-3 p-4 bg-slate-900 rounded-xl border border-slate-800 text-xs">
-                      <div>
-                        <div className="text-slate-400 text-[11px] uppercase font-medium">Format</div>
-                        <div className="font-semibold text-slate-200 mt-0.5">{sport.teamSize}</div>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-[11px] uppercase font-medium">
-                          Prize Pool
+                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 shadow-[0_18px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl text-xs">
+                      <div className="grid grid-cols-2 gap-4 items-start">
+                        <div>
+                          <div className="text-slate-400 text-[11px] uppercase font-medium">Format</div>
+                          <div className="font-semibold text-slate-200 mt-0.5">{sport.teamSize}</div>
                         </div>
-                        <div className="font-extrabold text-amber-400 mt-0.5">{sport.prizes}</div>
+                        <div className="justify-self-end text-right">
+                          <div className="text-slate-400 text-[11px] uppercase font-medium">
+                            Prize Pool
+                          </div>
+                          <div className="font-extrabold text-amber-400 mt-0.5">{sport.prizes}</div>
+                        </div>
                       </div>
                     </div>
                     <p className="text-[11px] text-slate-400 italic mt-1.5">
@@ -83,7 +97,7 @@ export default function SportsGallery({ onRegisterSport }) {
                 </div>
 
                 {/* Floating Image Column */}
-                <div className={`w-full flex items-center justify-center ${isImageRight ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div className={`hidden lg:flex w-full items-center justify-center ${isImageRight ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="w-full max-w-lg sm:max-w-xl lg:max-w-2xl flex items-center justify-center">
                     <img
                       src={sport.image}
