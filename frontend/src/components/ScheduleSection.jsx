@@ -1,15 +1,8 @@
 import React from 'react';
-import { Calendar, ChevronDown } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
 
 export default function ScheduleSection() {
-  const handleScrollToSport = (sportId) => {
-    const element = document.getElementById(`sport-${sportId}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
   return (
     <section id="schedule" className="relative overflow-hidden border-y border-white/10 bg-black py-12 sm:py-14">
 
@@ -41,18 +34,14 @@ export default function ScheduleSection() {
                     /* Above Item: Card Section & Stem ABOVE the Main White Line */
                     <div className="absolute bottom-1/2 flex flex-col items-center pb-0 z-10">
                       {/* Card Section */}
-                      <button
-                        onClick={() => handleScrollToSport(sport.id)}
-                        className="group relative w-full max-w-[145px] rounded-2xl border border-white/15 bg-transparent px-3 pt-3 pb-5 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)] cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:border-white/35 hover:bg-white/10 hover:shadow-[0_18px_40px_rgba(0,0,0,0.42)] focus:outline-none focus:ring-2 focus:ring-white/30"
-                      >
-                        <ChevronDown className="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 translate-y-[calc(50%+2px)] text-red-500 opacity-90 transition-transform duration-200 group-hover:translate-y-[calc(58%+2px)]" />
+                      <div className="group relative w-full max-w-[145px] rounded-2xl border border-white/15 bg-transparent px-3 pt-3 pb-5 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)]">
                         <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 group-hover:text-white/80">
                           {sport.dateDisplay}
                         </div>
                         <div className="mt-1.5 truncate text-[13px] font-extrabold leading-tight text-white transition-colors group-hover:text-white">
                           {sport.title}
                         </div>
-                      </button>
+                      </div>
 
                       {/* Stem Connecting Card to Node */}
                       <div className="w-0.5 h-7 rounded-full bg-gradient-to-b from-white/0 via-white/70 to-white/0" />
@@ -70,18 +59,14 @@ export default function ScheduleSection() {
                       <div className="w-0.5 h-7 rounded-full bg-gradient-to-b from-white/0 via-white/70 to-white/0" />
 
                       {/* Card Section */}
-                      <button
-                        onClick={() => handleScrollToSport(sport.id)}
-                        className="group relative mt-1 w-full max-w-[145px] rounded-2xl border border-white/15 bg-transparent px-3 pt-3 pb-5 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)] cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:border-white/35 hover:bg-white/10 hover:shadow-[0_18px_40px_rgba(0,0,0,0.42)] focus:outline-none focus:ring-2 focus:ring-white/30"
-                      >
-                        <ChevronDown className="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 translate-y-[calc(50%+2px)] text-red-500 opacity-90 transition-transform duration-200 group-hover:translate-y-[calc(58%+2px)]" />
+                      <div className="group relative mt-1 w-full max-w-[145px] rounded-2xl border border-white/15 bg-transparent px-3 pt-3 pb-5 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)]">
                         <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 group-hover:text-white/80">
                           {sport.dateDisplay}
                         </div>
                         <div className="mt-1.5 truncate text-[13px] font-extrabold leading-tight text-white transition-colors group-hover:text-white">
                           {sport.title}
                         </div>
-                      </button>
+                      </div>
                     </div>
                   )}
 
@@ -115,34 +100,26 @@ export default function ScheduleSection() {
                   {isLeft ? (
                     /* Left Detail Box in Column 1 */
                     <div className="col-start-1 pr-5 sm:pr-6 flex justify-end">
-                      <button
-                        onClick={() => handleScrollToSport(sport.id)}
-                        className="group relative w-full max-w-[135px] rounded-2xl border border-white/15 bg-transparent px-2.5 pt-2.5 pb-5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)] cursor-pointer transition-all active:scale-95 hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/10 hover:shadow-[0_16px_34px_rgba(0,0,0,0.34)] focus:outline-none focus:ring-2 focus:ring-white/30"
-                      >
-                        <ChevronDown className="absolute bottom-0 left-1/2 h-3.5 w-3.5 -translate-x-1/2 translate-y-[calc(50%+2px)] text-red-500 opacity-90 transition-transform duration-200 group-hover:translate-y-[calc(58%+2px)]" />
+                      <div className="group relative w-full max-w-[135px] rounded-2xl border border-white/15 bg-transparent px-2.5 pt-2.5 pb-5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)]">
                         <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/70">
                           {sport.dateDisplay}
                         </div>
                         <div className="mt-1 truncate text-[13px] font-extrabold leading-tight text-white">
                           {sport.title}
                         </div>
-                      </button>
+                      </div>
                     </div>
                   ) : (
                     /* Right Detail Box in Column 2 */
                     <div className="col-start-2 pl-5 sm:pl-6 flex justify-start">
-                      <button
-                        onClick={() => handleScrollToSport(sport.id)}
-                        className="group relative w-full max-w-[135px] rounded-2xl border border-white/15 bg-transparent px-2.5 pt-2.5 pb-5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)] cursor-pointer transition-all active:scale-95 hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/10 hover:shadow-[0_16px_34px_rgba(0,0,0,0.34)] focus:outline-none focus:ring-2 focus:ring-white/30"
-                      >
-                        <ChevronDown className="absolute bottom-0 left-1/2 h-3.5 w-3.5 -translate-x-1/2 translate-y-[calc(50%+2px)] text-red-500 opacity-90 transition-transform duration-200 group-hover:translate-y-[calc(58%+2px)]" />
+                      <div className="group relative w-full max-w-[135px] rounded-2xl border border-white/15 bg-transparent px-2.5 pt-2.5 pb-5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)]">
                         <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/70">
                           {sport.dateDisplay}
                         </div>
                         <div className="mt-1 truncate text-[13px] font-extrabold leading-tight text-white">
                           {sport.title}
                         </div>
-                      </button>
+                      </div>
                     </div>
                   )}
 
