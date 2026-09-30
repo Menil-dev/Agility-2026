@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, QrCode, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, ExternalLink, QrCode, Sparkles, ChevronDown, Check } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
 
 export default function RegistrationModal({ sport: initialSport, onClose }) {
   const [selectedSportId, setSelectedSportId] = useState(
     initialSport ? initialSport.id : sportsData[0].id
   );
+  const [isSportDropdownOpen, setIsSportDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const sport = sportsData.find(s => s.id === selectedSportId) || sportsData[0];
 
@@ -19,6 +21,21 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
+
+  useEffect(() => {
+    const handlePointerDown = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsSportDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('touchstart', handlePointerDown);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('touchstart', handlePointerDown);
+    };
+  }, []);
 
   return (
     <div
@@ -54,21 +71,45 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
         <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 overflow-y-auto">
 
           {/* Sport Selector Dropdown */}
-          <div>
+          <div ref={dropdownRef} className="relative">
             <label className="block text-slate-400 text-xs font-semibold mb-2">
               Select Sport Event
             </label>
-            <select
-              value={selectedSportId}
-              onChange={(e) => setSelectedSportId(e.target.value)}
-              className="w-full bg-slate-900 text-white font-medium border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-red-500 transition-colors cursor-pointer"
+            <button
+              type="button"
+              onClick={() => setIsSportDropdownOpen((open) => !open)}
+              className="w-full bg-slate-900 text-white font-medium border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-red-500 transition-colors cursor-pointer flex items-center justify-between gap-3"
             >
-              {sportsData.map(s => (
-                <option key={s.id} value={s.id}>
-                  {s.title}
-                </option>
-              ))}
-            </select>
+              <span className="truncate">{sport.title}</span>
+              <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isSportDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {isSportDropdownOpen && (
+              <div className="absolute left-0 right-0 top-full mt-2 z-20 rounded-xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/40 overflow-hidden">
+                {sportsData.map((item, index) => {
+                  const isSelected = item.id === selectedSportId;
+
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => {
+                        setSelectedSportId(item.id);
+                        setIsSportDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-left text-xs sm:text-sm flex items-center justify-between transition-colors ${
+                        isSelected
+                          ? 'bg-slate-800 text-white'
+                          : 'bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white'
+                      } ${index !== sportsData.length - 1 ? 'border-b border-slate-800' : ''}`}
+                    >
+                      <span className="truncate">{item.title}</span>
+                      {isSelected && <Check className="w-4 h-4 text-red-500 shrink-0" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* Category & Fee Pricing Card */}

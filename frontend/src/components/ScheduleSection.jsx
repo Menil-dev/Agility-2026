@@ -11,28 +11,23 @@ export default function ScheduleSection() {
   };
 
   return (
-    <section id="schedule" className="py-10 bg-black border-b-2 border-white/30 md:border-b-0 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="schedule" className="relative overflow-hidden border-y border-white/10 bg-black py-12 sm:py-14">
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-[11px] font-bold text-yellow-400 uppercase tracking-widest block mb-1 flex items-center justify-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-yellow-400" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <h2 className="inline-flex items-center justify-center gap-1.5 text-[13px] sm:text-sm font-extrabold uppercase tracking-[0.24em] text-white">
+            <Calendar className="w-3.5 h-3.5 text-white" />
             Tournament Schedule
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Match Timeline
           </h2>
-          <p className="mt-1 text-xs sm:text-sm text-slate-400">
-            Click any date section to jump directly to the sport details below.
-          </p>
         </div>
 
         {/* ─── DESKTOP HORIZONTAL TIMELINE ─── */}
-        <div className="hidden md:block relative h-64 my-4 px-2">
+        <div className="hidden md:block relative h-72 my-4 px-2">
           
           {/* Main White Horizontal Line */}
-          <div className="absolute top-1/2 left-6 right-6 h-[2px] bg-white -translate-y-1/2 z-0" />
+          <div className="absolute top-1/2 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-y-1/2 z-0" />
 
           {/* 8 Columns Grid */}
           <div className="grid grid-cols-8 gap-2 relative z-10 h-full">
@@ -48,40 +43,40 @@ export default function ScheduleSection() {
                       {/* Card Section */}
                       <button
                         onClick={() => handleScrollToSport(sport.id)}
-                        className="group w-full max-w-[130px] p-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-yellow-400 hover:bg-slate-800/90 transition-all duration-200 cursor-pointer shadow-xl hover:scale-105 text-center mb-1"
+                        className="group w-full max-w-[145px] rounded-2xl border border-white/10 bg-transparent p-3 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)] transition-all duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/5"
                       >
-                        <div className="text-[11px] font-bold text-white font-mono group-hover:text-white">
+                        <div className="mx-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-2.5 py-1 text-[11px] font-bold font-mono tracking-wide text-white/90 group-hover:bg-white/5 group-hover:text-white">
                           {sport.dateDisplay}
                         </div>
-                        <div className="text-xs font-extrabold text-white mt-0.5 truncate group-hover:text-yellow-300 transition-colors">
+                        <div className="mt-2 truncate text-[13px] font-extrabold leading-tight text-white transition-colors group-hover:text-white">
                           {sport.title}
                         </div>
                       </button>
 
                       {/* Stem Connecting Card to Node */}
-                      <div className="w-0.5 h-6 bg-white/70" />
+                      <div className="w-0.5 h-7 rounded-full bg-gradient-to-b from-white/0 via-white/70 to-white/0" />
 
                       {/* Red Node with White Border sitting on the Main White Line */}
-                      <div className="w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-lg shadow-red-500/40 translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
+                      <div className="w-5 h-5 rounded-full bg-red-500 translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
                     </div>
                   ) : (
                     /* Below Item: Card Section & Stem BELOW the Main White Line */
                     <div className="absolute top-1/2 flex flex-col items-center pt-0 z-10">
                       {/* Red Node with White Border sitting on the Main White Line */}
-                      <div className="w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-lg shadow-red-500/40 -translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
+                      <div className="w-5 h-5 rounded-full bg-red-500 -translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
 
                       {/* Stem Connecting Node to Card */}
-                      <div className="w-0.5 h-6 bg-white/70" />
+                      <div className="w-0.5 h-7 rounded-full bg-gradient-to-b from-white/0 via-white/70 to-white/0" />
 
                       {/* Card Section */}
                       <button
                         onClick={() => handleScrollToSport(sport.id)}
-                        className="group w-full max-w-[130px] p-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-yellow-400 hover:bg-slate-800/90 transition-all duration-200 cursor-pointer shadow-xl hover:scale-105 text-center mt-1"
+                        className="group mt-1 w-full max-w-[145px] rounded-2xl border border-white/10 bg-transparent p-3 text-center text-white shadow-[0_14px_34px_rgba(0,0,0,0.32)] transition-all duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/5"
                       >
-                        <div className="text-[11px] font-bold text-white font-mono group-hover:text-white">
+                        <div className="mx-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-2.5 py-1 text-[11px] font-bold font-mono tracking-wide text-white/90 group-hover:bg-white/5 group-hover:text-white">
                           {sport.dateDisplay}
                         </div>
-                        <div className="text-xs font-extrabold text-white mt-0.5 truncate group-hover:text-yellow-300 transition-colors">
+                        <div className="mt-2 truncate text-[13px] font-extrabold leading-tight text-white transition-colors group-hover:text-white">
                           {sport.title}
                         </div>
                       </button>
@@ -99,45 +94,48 @@ export default function ScheduleSection() {
         <div className="block md:hidden relative py-4 my-2">
           
           {/* Centered White Vertical Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-[2px] bg-white z-0" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-[2px] bg-gradient-to-b from-white/0 via-white/80 to-white/0 z-0" />
 
           {/* Alternating Grid Rows */}
-          <div className="space-y-5 relative z-10">
+          <div className="space-y-6 relative z-10">
             {sportsData.map((sport, index) => {
               const isLeft = index % 2 === 0;
 
               return (
-                <div key={sport.id} className="grid grid-cols-2 gap-0 relative items-center min-h-[58px]">
+                <div key={sport.id} className="grid grid-cols-2 gap-0 relative items-center min-h-[72px]">
                   
+                  {/* Connector line from the card to the center node */}
+                  <div className={`absolute top-1/2 h-0.5 w-6 sm:w-8 -translate-y-1/2 bg-gradient-to-r from-white/0 via-white/70 to-white/0 z-10 ${isLeft ? 'left-1/2 -translate-x-full' : 'left-1/2'}`} />
+
                   {/* Red Node Dot with White Border Centered on White Line */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-md shadow-red-500/30 z-20" />
+                  <div className="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-red-500 z-20" />
 
                   {isLeft ? (
                     /* Left Detail Box in Column 1 */
-                    <div className="col-start-1 pr-3">
+                    <div className="col-start-1 pr-5 sm:pr-6 flex justify-end">
                       <button
                         onClick={() => handleScrollToSport(sport.id)}
-                        className="w-full bg-slate-900 border border-slate-700 hover:border-yellow-400 active:scale-95 p-2.5 rounded-xl transition-all text-center cursor-pointer shadow-lg"
+                        className="w-full max-w-[135px] rounded-2xl border border-white/10 bg-transparent px-2.5 py-2.5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)] transition-all active:scale-95 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/5"
                       >
-                        <div className="text-[10px] font-bold text-white font-mono">
+                        <div className="mx-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-2 py-1 text-[10px] font-bold font-mono tracking-wide text-white/90">
                           {sport.dateDisplay}
                         </div>
-                        <div className="text-xs font-extrabold text-white mt-0.5 truncate">
+                        <div className="mt-1.5 truncate text-[13px] font-extrabold leading-tight text-white">
                           {sport.title}
                         </div>
                       </button>
                     </div>
                   ) : (
                     /* Right Detail Box in Column 2 */
-                    <div className="col-start-2 pl-3">
+                    <div className="col-start-2 pl-5 sm:pl-6 flex justify-start">
                       <button
                         onClick={() => handleScrollToSport(sport.id)}
-                        className="w-full bg-slate-900 border border-slate-700 hover:border-yellow-400 active:scale-95 p-2.5 rounded-xl transition-all text-center cursor-pointer shadow-lg"
+                        className="w-full max-w-[135px] rounded-2xl border border-white/10 bg-transparent px-2.5 py-2.5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.24)] transition-all active:scale-95 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/5"
                       >
-                        <div className="text-[10px] font-bold text-white font-mono">
+                        <div className="mx-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-2 py-1 text-[10px] font-bold font-mono tracking-wide text-white/90">
                           {sport.dateDisplay}
                         </div>
-                        <div className="text-xs font-extrabold text-white mt-0.5 truncate">
+                        <div className="mt-1.5 truncate text-[13px] font-extrabold leading-tight text-white">
                           {sport.title}
                         </div>
                       </button>
