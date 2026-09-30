@@ -61,14 +61,14 @@ export default function ScheduleSection() {
                       {/* Stem Connecting Card to Node */}
                       <div className="w-0.5 h-6 bg-white/70" />
 
-                      {/* Yellow Node with White Border sitting on the Main White Line */}
-                      <div className="w-4 h-4 rounded-full bg-yellow-400 border-2 border-white shadow-lg shadow-yellow-400/40 translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
+                      {/* Red Node with White Border sitting on the Main White Line */}
+                      <div className="w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-lg shadow-red-500/40 translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
                     </div>
                   ) : (
                     /* Below Item: Card Section & Stem BELOW the Main White Line */
                     <div className="absolute top-1/2 flex flex-col items-center pt-0 z-10">
-                      {/* Yellow Node with White Border sitting on the Main White Line */}
-                      <div className="w-4 h-4 rounded-full bg-yellow-400 border-2 border-white shadow-lg shadow-yellow-400/40 -translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
+                      {/* Red Node with White Border sitting on the Main White Line */}
+                      <div className="w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-lg shadow-red-500/40 -translate-y-1/2 z-20 transition-transform duration-200 hover:scale-125" />
 
                       {/* Stem Connecting Node to Card */}
                       <div className="w-0.5 h-6 bg-white/70" />
@@ -109,8 +109,8 @@ export default function ScheduleSection() {
               return (
                 <div key={sport.id} className="grid grid-cols-2 gap-0 relative items-center min-h-[58px]">
                   
-                  {/* Yellow Node Dot with White Border Centered on White Line */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-yellow-400 border-2 border-white shadow-md shadow-yellow-400/30 z-20" />
+                  {/* Red Node Dot with White Border Centered on White Line */}
+                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-500 border-2 border-white shadow-md shadow-red-500/30 z-20" />
 
                   {isLeft ? (
                     /* Left Detail Box in Column 1 */

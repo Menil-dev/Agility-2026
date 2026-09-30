@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, QrCode, Copy, Check, Sparkles } from 'lucide-react';
+import { X, ExternalLink, QrCode, Sparkles } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
 
 export default function RegistrationModal({ sport: initialSport, onClose }) {
   const [selectedSportId, setSelectedSportId] = useState(
     initialSport ? initialSport.id : sportsData[0].id
   );
-  const [copied, setCopied] = useState(false);
 
   const sport = sportsData.find(s => s.id === selectedSportId) || sportsData[0];
 
@@ -21,25 +20,17 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  const handleCopyLink = () => {
-    if (sport.formLink) {
-      navigator.clipboard.writeText(sport.formLink);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   return (
     <div
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto cursor-pointer"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto overscroll-contain cursor-pointer"
     >
-      <div className="relative w-full max-w-lg bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden my-8 text-white cursor-default">
+      <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden my-auto text-white cursor-default flex flex-col">
         
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-900 bg-slate-900/60">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-900 bg-slate-900/60 shrink-0">
           <div>
             <span className="text-[10px] font-bold text-red-500 uppercase tracking-wider block">
               Official Entry Portal
@@ -60,7 +51,7 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 overflow-y-auto">
 
           {/* Sport Selector Dropdown */}
           <div>
@@ -120,11 +111,11 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
               <span>Scan QR Code to Open Google Form</span>
             </div>
 
-            <div className="inline-block bg-white p-3 rounded-2xl shadow-xl shadow-red-950/20 border border-slate-200">
+            <div className="inline-block bg-white p-3 rounded-2xl shadow-xl shadow-red-950/20 border border-slate-200 max-w-full">
               <img
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(sport.formLink)}`}
                 alt={`${sport.title} Registration Form QR`}
-                className="w-44 h-44 sm:w-48 sm:h-48 object-contain"
+                className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
               />
             </div>
 
@@ -145,37 +136,6 @@ export default function RegistrationModal({ sport: initialSport, onClose }) {
               <ExternalLink className="w-4 h-4" />
             </a>
 
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                readOnly
-                value={sport.formLink}
-                className="flex-1 bg-slate-900 text-slate-400 font-mono text-[11px] border border-slate-800 rounded-xl px-3 py-2.5 focus:outline-none select-all"
-              />
-              <button
-                onClick={handleCopyLink}
-                className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition-colors flex items-center gap-1.5 shrink-0"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Link</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            <button
-              onClick={onClose}
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 font-semibold text-xs border border-slate-800 transition-colors"
-            >
-              Close Window
-            </button>
           </div>
 
         </div>
