@@ -22,24 +22,8 @@ export default function Navbar({ onOpenRegister }) {
           </a>
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={() => onOpenRegister && onOpenRegister()}
-            className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold text-xs tracking-wide transition-all shadow-lg shadow-red-600/20"
-          >
-            Register Now
-          </button>
-        </div>
-
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={() => onOpenRegister && onOpenRegister()}
-            className="px-3.5 py-1.5 rounded-lg bg-red-600 text-white text-xs font-semibold"
-          >
-            Register
-          </button>
+        <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-300 hover:text-white"
@@ -60,15 +44,6 @@ export default function Navbar({ onOpenRegister }) {
           >
             Events & Pricing
           </a>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenRegister && onOpenRegister();
-            }}
-            className="w-full text-left py-2 font-bold text-red-500"
-          >
-            Open Registration Modal
-          </button>
         </div>
       )}
     </header>
