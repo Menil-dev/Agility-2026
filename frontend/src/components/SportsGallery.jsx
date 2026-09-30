@@ -1,8 +1,85 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Tag } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
+import { motion, useAnimation, useInView } from 'framer-motion';
+
+function RevealOnScroll({ children, delay = 0, isPastCenter = false, onRef, ...motionProps }) {
+  const ref = useRef(null);
+  const controls = useAnimation();
+  const isInView = useInView(ref, { amount: 0.22, once: false });
+
+  useEffect(() => {
+    if (onRef) {
+      onRef(ref.current);
+    }
+  }, [onRef]);
+
+  useEffect(() => {
+    if (isPastCenter) {
+      controls.start('past');
+      return;
+    }
+
+    controls.start(isInView ? 'visible' : 'hidden');
+  }, [controls, isInView, isPastCenter]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      {...motionProps}
+      variants={{
+        hidden: { opacity: 0, y: 32 },
+        visible: { opacity: 1, y: 0 },
+        past: { opacity: 0, y: -24 },
+      }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function SportsGallery({ onRegisterSport }) {
+  const itemRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateActiveIndex = () => {
+      const centerY = window.innerHeight * 0.3;
+      let nextActive = 0;
+
+      itemRefs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= centerY) {
+          nextActive = idx;
+        }
+      });
+
+      setActiveIndex((prev) => (prev === nextActive ? prev : nextActive));
+      ticking = false;
+    };
+
+    const onScrollOrResize = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateActiveIndex);
+    };
+
+    onScrollOrResize();
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+
+    return () => {
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+    };
+  }, []);
+
   return (
     <section id="sports" className="py-8 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,10 +90,15 @@ export default function SportsGallery({ onRegisterSport }) {
             const isImageRight = index % 2 === 0;
 
             return (
-              <div
+              <RevealOnScroll
                 key={sport.id}
                 id={`sport-${sport.id}`}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch scroll-mt-24"
+                delay={index * 0.05}
+                isPastCenter={index < activeIndex}
+                onRef={(el) => {
+                  itemRefs.current[index] = el;
+                }}
               >
                 {/* Text & Details Column */}
                 <div className={`space-y-4 text-left flex flex-col justify-between h-full py-2 ${isImageRight ? 'lg:order-1' : 'lg:order-2'}`}>
@@ -110,7 +192,7 @@ export default function SportsGallery({ onRegisterSport }) {
                   </div>
                 </div>
 
-              </div>
+              </RevealOnScroll>
             );
           })}
         </div>
