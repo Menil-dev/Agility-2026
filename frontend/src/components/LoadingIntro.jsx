@@ -85,7 +85,7 @@ export default function LoadingIntro({ onComplete }) {
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
                   <p className="text-xs sm:text-sm md:text-base font-semibold text-slate-400 uppercase tracking-[0.4em]">
-                    The Ultimate Showdown
+                    Compete Connect Conquer
                   </p>
                 </motion.div>
               </motion.div>
