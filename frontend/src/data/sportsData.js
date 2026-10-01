@@ -33,7 +33,7 @@ export const sportsData = [
     teamSize: '1 or 2 Players',
     maxPlayers: 2,
     type: 'Solo/Doubles',
-    date: '8-11 October 2026',
+    date: '8, 11 October 2026',
     dateDisplay: '8-11 Oct 2026',
     venue: 'SPIT Student Activity Center',
     description: 'High-speed indoor table tennis championship for singles and doubles categories.',
