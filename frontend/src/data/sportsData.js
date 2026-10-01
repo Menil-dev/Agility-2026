@@ -19,7 +19,7 @@ export const sportsData = [
     ],
     prizes: '₹8,000',
     popular: true,
-    formLink: 'https://forms.gle/LkP11mddjqvjSHDa9',
+    formLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYC8p7G_uWKJhHK2ojkCkWbTRiH3EhB0_1SCcuHNHQB08B4Q/viewform?usp=sharing&ouid=106893775628648167792',
     variants: [
       { name: 'Volleyball Team', fee: '₹799' }
     ]
@@ -34,7 +34,7 @@ export const sportsData = [
     maxPlayers: 2,
     type: 'Solo/Doubles',
     date: '8, 11 October 2026',
-    dateDisplay: '8-11 Oct 2026',
+    dateDisplay: '8 & 11 Oct 2026',
     venue: 'SPIT Student Activity Center',
     description: 'High-speed indoor table tennis championship for singles and doubles categories.',
     rules: [
@@ -102,7 +102,7 @@ export const sportsData = [
     variants: [
       { name: 'FF (Free Fire)', fee: '₹199' },
       { name: 'BGMI', fee: '₹199' },
-      { name: 'FC Mobile', fee: '₹149' },
+      { name: 'FC Mobile', fee: '₹75' },
       { name: 'FC26 PS5', fee: '₹149' },
       { name: 'CR (Clash Royale)', fee: '₹59' }
     ]
@@ -113,7 +113,7 @@ export const sportsData = [
     image: '/uploads/dodgeball.jpg',
     tagline: 'Dodge, Duck, Dip, Dive and Dodge!',
     fee: '₹499 / Team',
-    teamSize: '6 Girl players',
+    teamSize: '8+ 1 optional girls',
     maxPlayers: 6,
     type: 'Team',
     date: '22 October 2026',
@@ -153,7 +153,7 @@ export const sportsData = [
     ],
     prizes: '₹13,000',
     popular: true,
-    formLink: 'https://forms.gle/pG4tCdZDS1EHBnw28',
+    formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeBtxFCyTrWqcQmo1SrbrAYWfircCfHqL_oHVOwtu4_3XUGtQ/viewform?usp=sharing&ouid=106893775628648167792',
     variants: [
       { name: 'Turf Cricket Squad', fee: '₹999' }
     ]
