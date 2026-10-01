@@ -17,7 +17,7 @@ export const sportsData = [
       'Net touches and line foot faults strictly monitored.',
       'Libero rotation allowed as per standard FIVB rules.'
     ],
-    prizes: '₹4,000',
+    prizes: '₹8,000',
     popular: true,
     formLink: 'https://forms.gle/LkP11mddjqvjSHDa9',
     variants: [
@@ -42,39 +42,13 @@ export const sportsData = [
       'ITTF approved 40+ 3-star balls provided.',
       'Players must bring their own ITTF rubber racquets.'
     ],
-    prizes: '₹2,000',
+    prizes: '₹4,000',
     popular: false,
     formLink: 'https://forms.gle/yRQcJNjgk2xNZSgL7',
     variants: [
       { name: 'Men Singles', fee: '₹99' },
       { name: 'Women Singles', fee: '₹99' },
       { name: 'Open Doubles', fee: '₹149' }
-    ]
-  },
-  {
-    id: 'carrom',
-    title: 'Carrom',
-    image: '/uploads/carrom.jpg',
-    tagline: 'Pocket the queen, rule the board',
-    fee: '₹79 – ₹129',
-    teamSize: '1 or 2 Players',
-    maxPlayers: 2,
-    type: 'Solo/Doubles',
-    date: '9 October 2026',
-    dateDisplay: '9 Oct 2026',
-    venue: 'SPIT Indoor Lounge',
-    description: 'Classic carrom tournament with smooth boards, precise striker shots, and queen cover battles.',
-    rules: [
-      'Standard AICF rules apply (29 Points or 3 Boards match).',
-      'Queen carries 3 points penalty if not covered.',
-      'Standard Synco powder & approved strikers used.'
-    ],
-    prizes: '₹2,000',
-    popular: false,
-    formLink: 'https://forms.gle/6Zs76DTvnM5DtuFc8',
-    variants: [
-      { name: 'Singles', fee: '₹79' },
-      { name: 'Open Doubles', fee: '₹129' }
     ]
   },
   {
@@ -95,7 +69,7 @@ export const sportsData = [
       'Blitz & Rapid categories available.',
       'Electronic clocks & boards supplied for top tables.'
     ],
-    prizes: '₹2,000',
+    prizes: '₹2,500',
     popular: true,
     formLink: 'https://forms.gle/DS6Qq2fa7t23NXxUA',
     variants: [
@@ -113,8 +87,8 @@ export const sportsData = [
     teamSize: 'Solo / Squad',
     maxPlayers: 4,
     type: 'Gaming',
-    date: '12-15 October 2026',
-    dateDisplay: '12-15 Oct 2026',
+    date: '12-16 October 2026',
+    dateDisplay: '12-16 Oct 2026',
     venue: 'SPIT E-Sports Arena',
     description: 'Competitive gaming showdown featuring Free Fire, BGMI, FIFA, and Clash Royale.',
     rules: [
@@ -122,9 +96,9 @@ export const sportsData = [
       'Custom room credentials provided 15 mins prior to match.',
       'Players must bring their own mobile devices / controllers.'
     ],
-    prizes: '₹4,000',
+    prizes: '₹5,000',
     popular: true,
-    formLink: 'https://forms.gle/esports-agility-2026',
+    formLink: 'https://forms.gle/j8dapzvr9zgbt5zt9',
     variants: [
       { name: 'FF (Free Fire)', fee: '₹199' },
       { name: 'BGMI', fee: '₹199' },
@@ -150,7 +124,7 @@ export const sportsData = [
       'Headshots are strictly prohibited and result in immediate out.',
       'Catching an opponent throw brings eliminated player back.'
     ],
-    prizes: '₹2,500',
+    prizes: '₹5,000',
     popular: false,
     formLink: 'https://forms.gle/TrCgo9zt4pCSjmmr6',
     variants: [
@@ -176,7 +150,7 @@ export const sportsData = [
       'Underarm bowling only; direct hit off wall catches are out.',
       'Team must bring uniform kit.'
     ],
-    prizes: '₹6,000',
+    prizes: '₹13,000',
     popular: true,
     formLink: 'https://forms.gle/pG4tCdZDS1EHBnw28',
     variants: [
@@ -202,7 +176,7 @@ export const sportsData = [
       'Non-marking shoes are strictly mandatory.',
       'Mavis 350 shuttles provided.'
     ],
-    prizes: '₹11,000',
+    prizes: '₹15,000',
     popular: true,
     formLink: 'https://forms.gle/FS4AAQsDSC2Cx2yk8',
     variants: [
@@ -211,6 +185,32 @@ export const sportsData = [
       { name: 'Men Doubles', fee: '₹349' },
       { name: 'Open Doubles', fee: '₹349' },
       { name: 'Women Doubles', fee: '₹349' }
+    ]
+  },
+  {
+    id: 'carrom',
+    title: 'Carrom',
+    image: '/uploads/carrom.jpg',
+    tagline: 'Pocket the queen, rule the board',
+    fee: '₹79 – ₹129',
+    teamSize: '1 or 2 Players',
+    maxPlayers: 2,
+    type: 'Solo/Doubles',
+    date: '27 October 2026',
+    dateDisplay: '27 Oct 2026',
+    venue: 'SPIT Indoor Lounge',
+    description: 'Classic carrom tournament with smooth boards, precise striker shots, and queen cover battles.',
+    rules: [
+      'Standard AICF rules apply (29 Points or 3 Boards match).',
+      'Queen carries 3 points penalty if not covered.',
+      'Standard Synco powder & approved strikers used.'
+    ],
+    prizes: '₹2,500',
+    popular: false,
+    formLink: 'https://forms.gle/6Zs76DTvnM5DtuFc8',
+    variants: [
+      { name: 'Singles', fee: '₹79' },
+      { name: 'Open Doubles', fee: '₹129' }
     ]
   }
 ];
