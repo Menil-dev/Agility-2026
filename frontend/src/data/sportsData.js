@@ -223,6 +223,6 @@ export const eventDetails = {
   dates: 'October 6 - 25, 2026',
   location: 'Bhavan\'s Campus, Munshi Nagar, Andheri (W), Mumbai',
   contactEmail: 'sports@spit.ac.in',
-  contactPhone: '+91 854282305',
+  contactPhone: '+91 8452828305',
   upiId: 'spitsports@upi'
 };
