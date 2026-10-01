@@ -5,7 +5,7 @@ export const sportsData = [
     image: '/uploads/volleyball.jpg',
     tagline: 'Spike through the defense, dominate the net',
     fee: '₹799 / Team',
-    teamSize: '6 + 2 Subs',
+    teamSize: '6 + 2 optional, 1 girl minimum',
     maxPlayers: 8,
     type: 'Team',
     date: '6-7 October 2026',
@@ -102,7 +102,8 @@ export const sportsData = [
     variants: [
       { name: 'FF (Free Fire)', fee: '₹199' },
       { name: 'BGMI', fee: '₹199' },
-      { name: 'FIFA', fee: '₹149' },
+      { name: 'FC Mobile', fee: '₹149' },
+      { name: 'FC26 PS5', fee: '₹149' },
       { name: 'CR (Clash Royale)', fee: '₹59' }
     ]
   },
@@ -112,7 +113,7 @@ export const sportsData = [
     image: '/uploads/dodgeball.jpg',
     tagline: 'Dodge, Duck, Dip, Dive and Dodge!',
     fee: '₹499 / Team',
-    teamSize: '6 Players',
+    teamSize: '6 Girl players',
     maxPlayers: 6,
     type: 'Team',
     date: '22 October 2026',
@@ -137,7 +138,7 @@ export const sportsData = [
     image: '/uploads/cricket.jpg',
     tagline: 'Smash boundaries under the floodlights',
     fee: '₹999 / Team',
-    teamSize: '6 + 2 Subs',
+    teamSize: '7 + 2 Subs, 1 girl minimum',
     maxPlayers: 8,
     type: 'Team',
     date: '24 October 2026',
@@ -183,7 +184,7 @@ export const sportsData = [
       { name: 'Men Singles', fee: '₹199' },
       { name: 'Women Singles', fee: '₹199' },
       { name: 'Men Doubles', fee: '₹349' },
-      { name: 'Open Doubles', fee: '₹349' },
+      { name: 'Mixed Doubles', fee: '₹349' },
       { name: 'Women Doubles', fee: '₹349' }
     ]
   },
