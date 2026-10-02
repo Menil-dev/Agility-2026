@@ -44,7 +44,7 @@ export const sportsData = [
     ],
     prizes: '₹4,000',
     popular: false,
-    formLink: 'https://forms.gle/xUEEHY6cjMUEXb8z5',
+    formLink: 'https://forms.gle/p7sij6FZP9AJvzsz6',
     variants: [
       { name: 'Men Singles', fee: '₹99' },
       { name: 'Women Singles', fee: '₹99' },
