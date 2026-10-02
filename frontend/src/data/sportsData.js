@@ -19,7 +19,7 @@ export const sportsData = [
     ],
     prizes: '₹8,000',
     popular: true,
-    formLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYC8p7G_uWKJhHK2ojkCkWbTRiH3EhB0_1SCcuHNHQB08B4Q/viewform?usp=sharing&ouid=106893775628648167792',
+    formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfn0g9mUYBs1LB8qN-lGOAJsfSdhw4bsW8DKNxJ1PIJIMZGhw/viewform?usp=dialog',
     variants: [
       { name: 'Volleyball Team', fee: '₹799' }
     ]
@@ -44,7 +44,7 @@ export const sportsData = [
     ],
     prizes: '₹4,000',
     popular: false,
-    formLink: 'https://forms.gle/yRQcJNjgk2xNZSgL7',
+    formLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYC8p7G_uWKJhHK2ojkCkWbTRiH3EhB0_1SCcuHNHQB08B4Q/viewform?usp=dialog',
     variants: [
       { name: 'Men Singles', fee: '₹99' },
       { name: 'Women Singles', fee: '₹99' },
